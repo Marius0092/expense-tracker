@@ -1,0 +1,23 @@
+<h2>Gestore delle spese personali</h2>
+
+<!-- Aggiunta di una nuova spesa -->
+<input type="text" [(ngModel)]="newExpense.name" placeholder="Nome spesa" />
+<input type="text" [(ngModel)]="newExpense.amount" placeholder="Importo" />
+<button (click)="addExpense()">Aggiungi spesa</button>
+
+<!-- Lista delle spese -->
+<ul>
+  <mat-list role="list" *ngFor="let expense of expenses">
+    <mat-list-item role="listitem">
+      Nome spesa: {{ expense.name }}</mat-list-item
+    >
+    <mat-list-item role="listitem">
+      Quantità: {{ expense.amount }}</mat-list-item
+    >
+    <button (click)="deleteExpense(expense)">Elimina</button>
+  </mat-list>
+</ul>
+
+<!-- Riepilogo delle spese totali -->
+<h3>Riepilogo delle spese totali</h3>
+<p>Totale spese: {{ getTotalExpenses() | number : "1.2-2" }}</p>
